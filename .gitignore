@@ -1,0 +1,28 @@
+# Virtual Environment
+.venv/
+venv/
+
+# Models
+saved_model/
+*.safetensors
+*.pt
+*.pth
+*.bin
+*.onnx
+
+# Secrets
+.env
+*api_key*
+*API*
+secrets.txt
+
+# Python
+__pycache__/
+*.pyc
+
+# Jupyter
+.ipynb_checkpoints/
+
+main.py
+Gemini_api_key.txt
+Groq API.txt
