@@ -24,7 +24,3 @@ prompt = ChatPromptTemplate.from_messages([
 agent = create_tool_calling_agent(llama, tools, prompt)
 agent_executor = AgentExecutor(agent=agent, tools=tools)
 
-response = agent_executor.invoke({"input": "What is the Foreign Transaction Fee percentage specified in the agreement, and how is the amount converted to U.S. Dollars when a transaction is made in a foreign currency?"})
-
-print("\n🤖 رد الوكيل بناءً على الـ RAG:")
-print(response["output"])
