@@ -5,6 +5,7 @@ from pydantic import BaseModel
 from models.classifier import ComplaintsClassifier
 from tools.rag_tools import get_ansewr
 from agents.agent import run_complaint_crew
+import os
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -12,7 +13,8 @@ logger = logging.getLogger(__name__)
 class ComplaintRequest(BaseModel):
     text: str
 
-model_bath = "C:/Users/user/Desktop/Codes/patients/saved_model"
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+model_bath = os.path.join(base_dir, "saved_model")
 app = FastAPI()
 
 try:

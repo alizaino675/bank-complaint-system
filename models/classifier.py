@@ -3,12 +3,14 @@ import re
 import joblib
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 from .gibberish import detect_gibberish
+import os
 
 class ComplaintsClassifier():
     def __init__(self, model_path):
         self.model = AutoModelForSequenceClassification.from_pretrained(model_path)
         self.tokenizer = AutoTokenizer.from_pretrained(model_path)
-        self.label_encoder = joblib.load("C:/Users/user/Desktop/Codes/patients/saved_model/label_encoder.joblib")
+        label_encoder_path = os.path.join(model_path, "label_encoder.joblib")
+        self.label_encoder = joblib.load(label_encoder_path)
         self.model.eval()
 
     def _clean_text(self, text: str):

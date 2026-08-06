@@ -2,11 +2,13 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.document_loaders import PyPDFDirectoryLoader
 from langchain_classic.vectorstores import FAISS
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+import os
 
 
-files_path = "C:/Users/user/Desktop/Codes/patients/knowledg_base"
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-index_path = "C:/Users/user/Desktop/Codes/patients/faiss_index"
+files_path = os.path.join(base_dir, "knowledg_base")
+index_path = os.path.join(base_dir, "faiss_index")
 def built_index():
     loader = PyPDFDirectoryLoader(
         files_path

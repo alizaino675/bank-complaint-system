@@ -13,7 +13,8 @@ load_dotenv()
 api_key = os.getenv('GEMINI_API_KEY', '')
 
 
-index_path = "C:/Users/user/Desktop/Codes/patients/faiss_index"
+base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+index_path = os.path.join(base_dir, "faiss_index")
 
 embeddings = HuggingFaceEmbeddings(
     model_name="sentence-transformers/all-MiniLM-L6-v2"
